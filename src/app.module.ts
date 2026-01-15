@@ -16,8 +16,10 @@ import { UserEntity } from './user/interfaces/user.entity';
     password: process.env.DB_PASSWORD,
     port: Number(process.env.DB_PORT),
     username: process.env.DB_USERNAME,
-    synchronize: true,
-    entities: [UserEntity]
+    entities: [UserEntity],
+    migrations:[`${__dirname}/migration/{.ts,*.js}`],
+    migrationsRun: true,
+    synchronize: false
 
   })
     ,UserModule
