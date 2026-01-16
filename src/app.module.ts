@@ -8,6 +8,7 @@ import { CityModule } from './city/city.module';
 import { AddressModule } from './address/address.module';
 import { StateEntity } from './state/entities/state.entity';
 import { CityEntity } from './city/entities/city.entity';
+import { CacheModule } from './cache/cache.module';
 
 
 @Module({
@@ -27,7 +28,7 @@ import { CityEntity } from './city/entities/city.entity';
     synchronize: false
 
   })
-    ,UserModule, StateModule, CityModule, AddressModule
+    ,UserModule, StateModule, CityModule, AddressModule, CacheModule
   ],
   controllers: [],
   providers: [],
