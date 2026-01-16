@@ -2,7 +2,12 @@ import { Module } from '@nestjs/common';
 import { UserModule } from './user/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserEntity } from './user/interfaces/user.entity';
+import { UserEntity } from './user/entities/user.entity';
+import { StateModule } from './state/state.module';
+import { CityModule } from './city/city.module';
+import { AddressModule } from './address/address.module';
+import { StateEntity } from './state/entities/state.entity';
+import { CityEntity } from './city/entities/city.entity';
 
 
 @Module({
@@ -16,13 +21,13 @@ import { UserEntity } from './user/interfaces/user.entity';
     password: process.env.DB_PASSWORD,
     port: Number(process.env.DB_PORT),
     username: process.env.DB_USERNAME,
-    entities: [UserEntity],
+    entities: [UserEntity, StateEntity,CityEntity],
     migrations:[`${__dirname}/migration/{.ts,*.js}`],
     migrationsRun: true,
     synchronize: false
 
   })
-    ,UserModule
+    ,UserModule, StateModule, CityModule, AddressModule
   ],
   controllers: [],
   providers: [],
