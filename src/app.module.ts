@@ -10,6 +10,7 @@ import { StateEntity } from './state/entities/state.entity';
 import { CityEntity } from './city/entities/city.entity';
 import { CacheModule } from './cache/cache.module';
 import { AddressEntity } from './address/entities/address.entity';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -29,7 +30,7 @@ import { AddressEntity } from './address/entities/address.entity';
     synchronize: false
 
   })
-    ,UserModule, StateModule, CityModule, AddressModule, CacheModule
+    ,UserModule, StateModule, CityModule, AddressModule, CacheModule, AuthModule
   ],
   controllers: [],
   providers: [],
