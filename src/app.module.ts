@@ -11,6 +11,9 @@ import { CityEntity } from './city/entities/city.entity';
 import { CacheModule } from './cache/cache.module';
 import { AddressEntity } from './address/entities/address.entity';
 import { AuthModule } from './auth/auth.module';
+import { APP_GUARD } from '@nestjs/core';
+import { RolesGuard } from './guards/roles.guard';
+import { JwtModule } from '@nestjs/jwt';
 
 
 @Module({
@@ -30,9 +33,12 @@ import { AuthModule } from './auth/auth.module';
     synchronize: false
 
   })
-    ,UserModule, StateModule, CityModule, AddressModule, CacheModule, AuthModule
+    ,UserModule, StateModule, CityModule, AddressModule, CacheModule, AuthModule, JwtModule
   ],
   controllers: [],
-  providers: [],
+  providers: [{
+    provide: APP_GUARD,
+    useClass: RolesGuard,
+  },],
 })
 export class AppModule {}
